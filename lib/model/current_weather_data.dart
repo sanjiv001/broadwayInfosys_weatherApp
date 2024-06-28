@@ -256,4 +256,14 @@ class Sys {
     data['sunset'] = this.sunset;
     return data;
   }
+
+  DateTime? getSunriseDateTime() {
+    if (sunrise == null) return null;
+    return DateTime.fromMillisecondsSinceEpoch(sunrise! * 1000, isUtc: true);
+  }
+
+  DateTime? getSunsetDateTime() {
+    if (sunset == null) return null;
+    return DateTime.fromMillisecondsSinceEpoch(sunset! * 1000, isUtc: true);
+  }
 }

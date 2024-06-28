@@ -3,6 +3,12 @@ import 'package:broadwayinfosys_weatherapp/model/current_weather_data.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+extension TimeFormatter on DateTime {
+  String formatTime() {
+    return "${this.hour.toString().padLeft(2, '0')}:${this.minute.toString().padLeft(2, '0')}:${this.second.toString().padLeft(2, '0')}.${this.millisecond.toString().padLeft(3, '0')}";
+  }
+}
+
 class WeatherScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -74,6 +80,58 @@ class WeatherDetails extends StatelessWidget {
               Text(
                 "Kathmandu,Nepal",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 2,
+        ),
+        Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: Colors.white.withOpacity(0.25),
+              border: Border.all(
+                color: Colors.white.withOpacity(0.75),
+                style: BorderStyle.solid,
+                width: 1,
+              )),
+          width: double.infinity,
+          child: Column(
+            children: [
+              Text(
+                "Today Weathers Report",
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text("Sunrise"),
+                        Text(weather.sys?.getSunriseDateTime()?.formatTime() ??
+                            "N/A"),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text("Sunset"),
+                        Text(weather.sys?.getSunsetDateTime()?.formatTime() ??
+                            "N/A"),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
