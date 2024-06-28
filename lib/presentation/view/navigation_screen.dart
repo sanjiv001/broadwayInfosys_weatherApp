@@ -1,7 +1,7 @@
 import 'package:broadwayinfosys_weatherapp/constant/color_constants.dart';
 import 'package:broadwayinfosys_weatherapp/presentation/view/drawer.dart';
 import 'package:broadwayinfosys_weatherapp/presentation/view/home_screen.dart';
-import 'package:broadwayinfosys_weatherapp/presentation/view/profie_screen.dart';
+import 'package:broadwayinfosys_weatherapp/presentation/view/weather_screen.dart';
 import 'package:flutter/material.dart';
 
 class NavigationButtonBarScreen extends StatefulWidget {
@@ -14,10 +14,12 @@ class NavigationButtonBarScreen extends StatefulWidget {
 
 class _NavigationButtonBarScreenState extends State<NavigationButtonBarScreen> {
   int pageIndex = 0;
+  // ValueNotifier<int> pageIndex = ValueNotifier(0);
 
   final pages = [
     const HomeScreen(),
-    const ProfileScreen(),
+    // const ProfileScreen(),
+    WeatherScreen(),
     const HomeScreen(),
   ];
 

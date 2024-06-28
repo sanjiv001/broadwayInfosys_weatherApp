@@ -11,7 +11,7 @@ class CurrentWeatherModel {
   Sys? sys;
   int? timezone;
   int? id;
-  String? name;
+  String? name = "Kathmandu";
   int? cod;
 
   CurrentWeatherModel(
@@ -27,7 +27,7 @@ class CurrentWeatherModel {
       this.sys,
       this.timezone,
       this.id,
-      this.name,
+      this.name = "Kathmandu",
       this.cod});
 
   CurrentWeatherModel.fromJson(Map<String, dynamic> json) {
@@ -233,11 +233,11 @@ class Clouds {
 class Sys {
   int? type;
   int? id;
-  String? country;
+  String? country = "Nepal";
   int? sunrise;
   int? sunset;
 
-  Sys({this.type, this.id, this.country, this.sunrise, this.sunset});
+  Sys({this.type, this.id, this.country = "Nepal", this.sunrise, this.sunset});
 
   Sys.fromJson(Map<String, dynamic> json) {
     type = json['type'];

@@ -23,27 +23,19 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: FutureBuilder(
-            future: currentWeatherData,
-            builder: (context, snapshot) {
-              if (snapshot.data == null) {
-                return const Center(child: Text("No Data Available!!!"));
-              }
-              if (snapshot.data == snapshot.connectionState) {
-                return const Center(
-                    child: CircularProgressIndicator.adaptive());
-              }
-              print("$snapshot");
-              return ListView.builder(
-                itemBuilder: (context, index) => Container(
-                  color: Colors.amber,
-                  height: 1000,
-                  child: Center(child: Text(snapshot.data.wind.speed)),
-                ),
-              );
-            }),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/weather.JPG'),
+            fit: BoxFit.cover,
+          ),
+          gradient: LinearGradient(
+            colors: [Color(0xff00c4cc), Color.fromARGB(255, 25, 148, 185)],
+          ),
+        ),
+        child: Center(
+          child: Text("Kjkl"),
+        ),
       ),
     );
   }
