@@ -1,7 +1,6 @@
 import 'package:broadwayinfosys_weatherapp/constant/color_constants.dart';
 import 'package:broadwayinfosys_weatherapp/presentation/view/drawer.dart';
 import 'package:broadwayinfosys_weatherapp/presentation/view/home_screen.dart';
-import 'package:broadwayinfosys_weatherapp/presentation/view/profie_screen.dart';
 import 'package:broadwayinfosys_weatherapp/presentation/view/weather_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,12 +14,10 @@ class NavigationButtonBarScreen extends StatefulWidget {
 
 class _NavigationButtonBarScreenState extends State<NavigationButtonBarScreen> {
   int pageIndex = 0;
-  // ValueNotifier<int> pageIndex = ValueNotifier(0);
 
   final pages = [
-    HomeScreen(),
     WeatherScreen(),
-    ProfileScreen(),
+    SecondScreen(),
   ];
 
   @override
@@ -39,10 +36,6 @@ class _NavigationButtonBarScreenState extends State<NavigationButtonBarScreen> {
         backgroundColor: AppColors.blueTextColor,
         elevation: 0,
         shadowColor: Colors.red,
-        // bottom: const PreferredSize(
-        //   preferredSize: Size(10, 10),
-        //   child: Text("data"),
-        // ),
         actions: [
           IconButton(
             onPressed: () {},
@@ -102,26 +95,7 @@ class _NavigationButtonBarScreenState extends State<NavigationButtonBarScreen> {
                     size: 35,
                   )
                 : const Icon(
-                    Icons.widgets_outlined,
-                    color: Colors.white,
-                    size: 35,
-                  ),
-          ),
-          IconButton(
-            enableFeedback: false,
-            onPressed: () {
-              setState(() {
-                pageIndex = 2;
-              });
-            },
-            icon: pageIndex == 2
-                ? const Icon(
-                    Icons.person,
-                    color: Colors.white,
-                    size: 35,
-                  )
-                : const Icon(
-                    Icons.person_outline,
+                    Icons.widgets_rounded,
                     color: Colors.white,
                     size: 35,
                   ),
