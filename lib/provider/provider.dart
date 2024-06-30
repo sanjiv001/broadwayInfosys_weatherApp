@@ -5,7 +5,7 @@ import 'package:provider/single_child_widget.dart';
 
 class AppProvider {
   static final List<SingleChildWidget> listOfProvider = <SingleChildWidget>[
-    Provider(create: (_) => CurrentWeatherController()),
-    Provider(create: (_) => WeeklyWeatherController()),
+    Provider(create: (_) => CurrentWeatherController()..currentWeather),
+    Provider(create: (_) => WeeklyWeatherController()..weeklyWeatherReport),
   ];
 }
