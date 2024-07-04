@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:broadwayinfosys_weatherapp/controller/current_weather_controller.dart';
 import 'package:broadwayinfosys_weatherapp/model/current_weather_data.dart';
 import 'package:flutter/material.dart';
@@ -5,13 +7,15 @@ import 'package:provider/provider.dart';
 
 extension TimeFormatter on DateTime {
   String formatTime() {
-    return "${this.hour.toString().padLeft(2, '0')}:${this.minute.toString().padLeft(2, '0')}:${this.second.toString().padLeft(2, '0')}.${this.millisecond.toString().padLeft(3, '0')}";
+    return "${hour.toString().padLeft(2, '0')}:${minute.toString().padLeft(2, '0')}:${second.toString().padLeft(2, '0')}.${millisecond.toString().padLeft(3, '0')}";
   }
 }
 
 class WeatherScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Provider.of<CurrentWeatherController>(context, listen: false)
+        .fetchCurrentWeather();
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -27,6 +31,8 @@ class WeatherScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Consumer<CurrentWeatherController>(
             builder: (context, weatherController, child) {
+              final data = weatherController.currentWeather;
+              log('data: $data');
               if (weatherController.currentWeather == null) {
                 return const Center(
                   child: Text("No Data Available"),

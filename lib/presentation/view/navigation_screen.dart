@@ -17,6 +17,7 @@ class _NavigationButtonBarScreenState extends State<NavigationButtonBarScreen> {
 
   final pages = [
     WeatherScreen(),
+    // ProfileScreen(),
     SecondScreen(),
   ];
 

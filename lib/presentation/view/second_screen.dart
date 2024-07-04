@@ -11,14 +11,9 @@ class SecondScreen extends StatefulWidget {
 
 class _SecondScreenState extends State<SecondScreen> {
   @override
-  void initState() {
-    super.initState();
+  Widget build(BuildContext context) {
     Provider.of<WeeklyWeatherController>(context, listen: false)
         .fetchWeeklyWeather();
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text("Weekly Weather Report")),
@@ -46,7 +41,7 @@ class _SecondScreenState extends State<SecondScreen> {
               );
             }
 
-            final weather = controller.weeklyWeatherReport;
+            final weather = controller!.weeklyWeatherReport;
             print(weather);
             return SingleChildScrollView(
               child: Padding(
